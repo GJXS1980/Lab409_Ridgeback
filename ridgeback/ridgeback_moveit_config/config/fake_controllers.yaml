@@ -1,5 +1,13 @@
 controller_list:
-  - name: fake_robotiq_controller
+  - name: fake_ur5_arm_controller
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+  - name: fake_ur5_robotiq_controller
     joints:
       - palm_finger_1_joint
       - finger_1_joint_1
@@ -13,15 +21,7 @@ controller_list:
       - finger_middle_joint_1
       - finger_middle_joint_2
       - finger_middle_joint_3
-  - name: fake_arm_controller
-    joints:
-      - shoulder_pan_joint
-      - shoulder_lift_joint
-      - elbow_joint
-      - wrist_1_joint
-      - wrist_2_joint
-      - wrist_3_joint
-  - name: fake_ur5_arm_controller
+  - name: fake_ur5_plan_arm_controller
     joints:
       - shoulder_pan_joint
       - shoulder_lift_joint
