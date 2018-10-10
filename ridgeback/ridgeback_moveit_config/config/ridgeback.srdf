@@ -10,9 +10,24 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="ur5_arm">
-        <chain base_link="base_link" tip_link="grasping_frame" />
+        <link name="shoulder_link" />
+        <link name="upper_arm_link" />
+        <link name="forearm_link" />
+        <link name="wrist_1_link" />
+        <link name="wrist_2_link" />
+        <link name="wrist_3_link" />
+        <link name="base" />
+        <link name="mid_mount_ur" />
+        <joint name="shoulder_pan_joint" />
+        <joint name="shoulder_lift_joint" />
+        <joint name="elbow_joint" />
+        <joint name="wrist_1_joint" />
+        <joint name="wrist_2_joint" />
+        <joint name="wrist_3_joint" />
+        <chain base_link="mid_mount" tip_link="grasping_frame" />
     </group>
     <group name="robotiq">
+        <link name="palm" />
         <link name="finger_1_link_0" />
         <link name="finger_1_link_1" />
         <link name="finger_1_link_2" />
@@ -25,6 +40,7 @@
         <link name="finger_middle_link_1" />
         <link name="finger_middle_link_2" />
         <link name="finger_middle_link_3" />
+        <joint name="robotiq_hand_joint" />
         <joint name="palm_finger_1_joint" />
         <joint name="finger_1_joint_1" />
         <joint name="finger_1_joint_2" />
@@ -38,20 +54,39 @@
         <joint name="finger_middle_joint_2" />
         <joint name="finger_middle_joint_3" />
     </group>
+    <group name="arm">
+        <link name="shoulder_link" />
+        <link name="upper_arm_link" />
+        <link name="forearm_link" />
+        <link name="wrist_1_link" />
+        <link name="wrist_2_link" />
+        <link name="wrist_3_link" />
+        <link name="ee_link" />
+        <joint name="mid_mount_ur_joint" />
+        <joint name="base_link-base_fixed_joint" />
+        <joint name="shoulder_pan_joint" />
+        <joint name="shoulder_lift_joint" />
+        <joint name="elbow_joint" />
+        <joint name="wrist_1_joint" />
+        <joint name="wrist_2_joint" />
+        <joint name="wrist_3_joint" />
+        <joint name="ee_fixed_joint" />
+    </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="home" group="ur5_arm">
         <joint name="elbow_joint" value="0" />
-        <joint name="shoulder_lift_joint" value="-1.519" />
+        <joint name="shoulder_lift_joint" value="-1.5535" />
         <joint name="shoulder_pan_joint" value="-0.1726" />
-        <joint name="wrist_1_joint" value="-1.588" />
-        <joint name="wrist_2_joint" value="-0.1036" />
-        <joint name="wrist_3_joint" value="0.1726" />
+        <joint name="wrist_1_joint" value="-1.6916" />
+        <joint name="wrist_2_joint" value="0.1036" />
+        <joint name="wrist_3_joint" value="0.069" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="robotiq" parent_link="grasping_frame" group="robotiq" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="axle_link" link2="chassis_link" reason="Adjacent" />
     <disable_collisions link1="axle_link" link2="front_cover_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_laser" reason="Never" />
     <disable_collisions link1="axle_link" link2="front_left_wheel_link" reason="Never" />
     <disable_collisions link1="axle_link" link2="front_lights_link" reason="Never" />
     <disable_collisions link1="axle_link" link2="front_right_wheel_link" reason="Never" />
@@ -67,6 +102,7 @@
     <disable_collisions link1="axle_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="axle_link" link2="top_link" reason="Never" />
     <disable_collisions link1="chassis_link" link2="front_cover_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="front_laser" reason="Adjacent" />
     <disable_collisions link1="chassis_link" link2="front_left_wheel_link" reason="Default" />
     <disable_collisions link1="chassis_link" link2="front_lights_link" reason="Adjacent" />
     <disable_collisions link1="chassis_link" link2="front_right_wheel_link" reason="Default" />
@@ -175,6 +211,7 @@
     <disable_collisions link1="finger_1_link_1" link2="finger_1_link_proximal_actuating_hinge" reason="Default" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_0" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_1" reason="Never" />
+    <disable_collisions link1="finger_1_link_1" link2="finger_2_link_2" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_3" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_median_bar" reason="Never" />
@@ -251,6 +288,7 @@
     <disable_collisions link1="finger_1_link_3" link2="finger_middle_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_3" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_3" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_1_link_3" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_1_link_3" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_1_link_3" link2="wrist_2_link" reason="Never" />
     <disable_collisions link1="finger_1_link_3" link2="wrist_3_link" reason="Never" />
@@ -275,6 +313,7 @@
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_2_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_2_link_proximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_middle_link_0" reason="Never" />
+    <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_middle_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_middle_link_median_bar_underactuated" reason="Never" />
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_middle_link_paradistal_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_actuating_hinge" link2="finger_middle_link_paramedian_hinge" reason="Never" />
@@ -294,6 +333,7 @@
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_1" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_median_bar" reason="Never" />
+    <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_median_bar_underactuated" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_paramedian_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_2_link_paraproximal_bar" reason="Never" />
@@ -306,6 +346,7 @@
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_middle_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_1_link_median_bar" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="wrist_2_link" reason="Never" />
     <disable_collisions link1="finger_1_link_median_bar" link2="wrist_3_link" reason="Never" />
@@ -373,6 +414,7 @@
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_1_link_paradistal_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="wrist_2_link" reason="Never" />
@@ -406,6 +448,7 @@
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_1_link_paramedian_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_1_link_paramedian_hinge" link2="wrist_2_link" reason="Never" />
@@ -634,6 +677,7 @@
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_2_link_median_actuating_hinge" link2="wrist_2_link" reason="Never" />
@@ -646,7 +690,6 @@
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_0" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_1" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_2" reason="Never" />
-    <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_3" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_bar_underactuated" reason="Never" />
@@ -670,6 +713,7 @@
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="finger_middle_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="wrist_2_link" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar_underactuated" link2="wrist_3_link" reason="Never" />
@@ -693,9 +737,11 @@
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_0" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_median_bar" reason="Never" />
+    <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_paramedian_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_2_link_paramedian_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_2_link_paramedian_hinge" link2="wrist_2_link" reason="Never" />
@@ -763,6 +809,7 @@
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="palm" reason="Default" />
+    <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_2_link_proximal_actuating_hinge" link2="wrist_2_link" reason="Never" />
@@ -827,6 +874,7 @@
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="finger_middle_link_paraproximal_bar" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="palm" reason="Never" />
+    <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_actuating_hinge" link2="wrist_2_link" reason="Never" />
@@ -843,6 +891,7 @@
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="finger_middle_link_paramedian_hinge" reason="Adjacent" />
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="wrist_2_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_median_bar_underactuated" link2="wrist_3_link" reason="Never" />
@@ -850,6 +899,7 @@
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="finger_middle_link_paraproximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
+    <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="wrist_2_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_paradistal_hinge" link2="wrist_3_link" reason="Never" />
@@ -857,6 +907,7 @@
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_bar" reason="Never" />
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="finger_middle_link_proximal_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="palm" reason="Never" />
+    <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="rear_lights_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="robotiq_coupler" reason="Never" />
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="wrist_1_link" reason="Never" />
     <disable_collisions link1="finger_middle_link_paramedian_hinge" link2="wrist_2_link" reason="Never" />
@@ -885,6 +936,7 @@
     <disable_collisions link1="finger_middle_link_proximal_actuating_hinge" link2="wrist_3_link" reason="Never" />
     <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent" />
     <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent" />
+    <disable_collisions link1="front_cover_link" link2="front_laser" reason="Never" />
     <disable_collisions link1="front_cover_link" link2="front_left_wheel_link" reason="Never" />
     <disable_collisions link1="front_cover_link" link2="front_lights_link" reason="Default" />
     <disable_collisions link1="front_cover_link" link2="front_right_wheel_link" reason="Never" />
@@ -899,6 +951,20 @@
     <disable_collisions link1="front_cover_link" link2="right_side_cover_link" reason="Never" />
     <disable_collisions link1="front_cover_link" link2="shoulder_link" reason="Never" />
     <disable_collisions link1="front_cover_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="front_lights_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="front_rocker_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="mid_mount_ur" reason="Never" />
+    <disable_collisions link1="front_laser" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="shoulder_link" reason="Never" />
+    <disable_collisions link1="front_laser" link2="top_link" reason="Never" />
     <disable_collisions link1="front_left_wheel_link" link2="front_lights_link" reason="Never" />
     <disable_collisions link1="front_left_wheel_link" link2="front_right_wheel_link" reason="Never" />
     <disable_collisions link1="front_left_wheel_link" link2="front_rocker_link" reason="Adjacent" />
