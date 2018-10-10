@@ -27,7 +27,8 @@
   <material name="yellow"><color rgba="0.8 0.8 0.0 1.0" /></material>
   <material name="black"><color rgba="0.15 0.15 0.15 1.0" /></material>
 
-  <xacro:include filename="$(find ur_description)/urdf/ur5_robotiq.urdf.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
 
   <xacro:macro name="wheel" params="prefix side *joint_pose">
     <link name="${prefix}_${side}_wheel_link">
@@ -299,6 +300,7 @@
   </joint>
 
 
+
   <!-- Bring in simulation data for Gazebo. -->
   <xacro:include filename="$(find ridgeback_description)/urdf/ridgeback.gazebo" />
 
@@ -306,6 +308,7 @@
        of these into the final description is controlled by optenv variables, which
        default each one to off.-->
   <xacro:include filename="$(find ridgeback_description)/urdf/accessories.urdf.xacro" />
+
 
   <!-- Optional custom includes. -->
   <xacro:include filename="$(optenv RIDGEBACK_URDF_EXTRAS empty.urdf)" />

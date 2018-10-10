@@ -13,6 +13,7 @@
   <xacro:include filename="$(find ridgeback_description)/urdf/accessories/sick_lms1xx_mount.urdf.xacro" />
   <xacro:include filename="$(find ridgeback_description)/urdf/accessories/sick_s300_mount.urdf.xacro" />
   <xacro:include filename="$(find ridgeback_description)/urdf/accessories/hokuyo_ust-10lx_mount.urdf.xacro" />
+  <xacro:include filename="$(find ridgeback_description)/urdf/accessories/microstrain_imu.urdf.xacro" />
 
   <xacro:include filename="$(find ur_description)/urdf/ur5_robotiq.urdf.xacro" />
 
@@ -26,21 +27,21 @@
   </xacro:if>
 
   <!-- If enabled, generate the rear HOKUYO UST-10LX LASER payload. -->
-  <xacro:if value="$(optenv RIDGEBACK_REAR_HOKUYO_LASER 1)">
+  <xacro:if value="$(optenv RIDGEBACK_REAR_HOKUYO_LASER 0)">
     <xacro:hokuyo_ust-10lx_mount prefix="rear"
                                  topic="rear/scan"
                                  location="-1" />
   </xacro:if>
 
   <!-- If enabled, generate the front SICK LMS111 LASER payload. -->
-  <xacro:if value="$(optenv RIDGEBACK_FRONT_SICK_LASER 1)">
+  <xacro:if value="$(optenv RIDGEBACK_FRONT_SICK_LASER 0)">
     <xacro:sick_lms1xx_mount prefix="front"
                              topic="front/scan"
                              location="1" />
   </xacro:if>
 
   <!-- If enabled, generate the rear SICK LMS111 LASER payload. -->
-  <xacro:if value="$(optenv RIDGEBACK_REAR_SICK_LASER 1)">
+  <xacro:if value="$(optenv RIDGEBACK_REAR_SICK_LASER 0)">
     <xacro:sick_lms1xx_mount prefix="rear"
                              topic="rear/scan"
                              location="-1" />
@@ -50,7 +51,7 @@
   <!-- If enabled, generate the front SICK S300 LASER payload.
        This uses the same mesh as the lms1xx since they are the footprint
        and the simulation parameters can be variable. -->
-  <xacro:if value="$(optenv RIDGEBACK_FRONT_S300_LASER 1)">
+  <xacro:if value="$(optenv RIDGEBACK_FRONT_S300_LASER 0)">
     <xacro:sick_s300_mount prefix="front"
                              topic="front/scan"
                              location="1" />
@@ -77,16 +78,29 @@
 
 
 <!-- Spawn arm -->
+<!-- 
   <xacro:ur5_robot prefix="ur5_arm_" joint_limited="true"/>
+-->
+
+
+
+
 
   <!-- Join arm -->
+  <!-- 
   <joint name="ur5_arm_base" type="fixed">
 	<parent link="mid_mount" />
 	<child link="ur5_arm_base_link" />
 	<origin xyz="0.28 0.0 0" rpy="0.0 0.0 -1.5708" />
   </joint>
+-->
+
+
 
   <!-- Gripper -->
+
+  <!-- 
+  
   <link name="gripper_link">
 		<visual>
 			<geometry>
@@ -107,7 +121,7 @@
 	  <parent link="ur5_arm_ee_link" />
 	  <child link="gripper_link" />
   </joint>
-
+-->
 
 
 
