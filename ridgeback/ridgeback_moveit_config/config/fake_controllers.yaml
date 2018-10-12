@@ -1,5 +1,5 @@
 controller_list:
-  - name: fake_ur5_arm_controller
+  - name: fake_ur_arm_controller
     joints:
       - shoulder_pan_joint
       - shoulder_lift_joint
@@ -7,25 +7,52 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
-  - name: fake_ur5_robotiq_controller
+  - name: fake_ur5_controller
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+  - name: fake_robotiq_controller
     joints:
       - palm_finger_1_joint
       - finger_1_joint_1
       - finger_1_joint_2
       - finger_1_joint_3
+      - finger_1_joint_paradistal_hinge
+      - finger_1_joint_median_actuating_hinge
+      - finger_1_joint_median_actuating_hinge_median_bar
+      - finger_1_joint_paramedian_hinge
+      - finger_1_joint_paramedian_hinge_median_bar_underactuated
+      - finger_1_joint_paraproximal_actuating_hinge
+      - finger_1_joint_paraproximal_bar
+      - finger_1_joint_proximal_actuating_hinge
+      - finger_1_joint_proximal_actuating_bar
       - palm_finger_2_joint
       - finger_2_joint_1
       - finger_2_joint_2
       - finger_2_joint_3
+      - finger_2_joint_paradistal_hinge
+      - finger_2_joint_median_actuating_hinge
+      - finger_2_joint_median_actuating_hinge_median_bar
+      - finger_2_joint_paramedian_hinge
+      - finger_2_joint_paramedian_hinge_median_bar_underactuated
+      - finger_2_joint_paraproximal_actuating_hinge
+      - finger_2_joint_paraproximal_bar
+      - finger_2_joint_proximal_actuating_hinge
+      - finger_2_joint_proximal_actuating_bar
       - palm_finger_middle_joint
       - finger_middle_joint_1
       - finger_middle_joint_2
       - finger_middle_joint_3
-  - name: fake_ur5_plan_arm_controller
-    joints:
-      - shoulder_pan_joint
-      - shoulder_lift_joint
-      - elbow_joint
-      - wrist_1_joint
-      - wrist_2_joint
-      - wrist_3_joint
+      - finger_middle_joint_paradistal_hinge
+      - finger_middle_joint_median_actuating_hinge
+      - finger_middle_joint_median_actuating_hinge_median_bar
+      - finger_middle_joint_paramedian_hinge
+      - finger_middle_joint_paramedian_hinge_median_bar_underactuated
+      - finger_middle_joint_paraproximal_actuating_hinge
+      - finger_middle_joint_paraproximal_bar
+      - finger_middle_joint_proximal_actuating_hinge
+      - finger_middle_joint_proximal_actuating_bar

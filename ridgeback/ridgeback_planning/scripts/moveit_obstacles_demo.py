@@ -28,7 +28,7 @@ class MoveItObstaclesDemo:
         rospy.sleep(1)
                         
         # 初始化需要使用move group控制的机械臂中的arm group
-        arm = MoveGroupCommander('ur5_arm')
+        arm = MoveGroupCommander('ur_arm')
         
         # 获取终端link的名称
         end_effector_link = arm.get_end_effector_link()

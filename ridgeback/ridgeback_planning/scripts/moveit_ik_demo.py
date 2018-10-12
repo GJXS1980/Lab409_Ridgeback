@@ -18,7 +18,7 @@ class MoveItIkDemo:
         rospy.init_node('moveit_ik_demo')
                 
         # 初始化需要使用move group控制的机械臂中的arm group
-        arm = moveit_commander.MoveGroupCommander('ur5_arm')
+        arm = moveit_commander.MoveGroupCommander('ur_arm')
                 
         # 获取终端link的名称
         end_effector_link = arm.get_end_effector_link()

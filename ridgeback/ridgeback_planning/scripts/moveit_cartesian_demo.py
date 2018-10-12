@@ -19,7 +19,7 @@ class MoveItCartesianDemo:
         cartesian = rospy.get_param('~cartesian', True)
                         
         # 初始化需要使用move group控制的机械臂中的arm group
-        arm = MoveGroupCommander('ur5_arm')
+        arm = MoveGroupCommander('ur_arm')
         
         # 当运动规划失败后，允许重新规划
         arm.allow_replanning(True)
