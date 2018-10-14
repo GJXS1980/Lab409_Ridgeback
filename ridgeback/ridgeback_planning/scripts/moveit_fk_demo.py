@@ -17,7 +17,7 @@ class MoveItFkDemo:
         arm = moveit_commander.MoveGroupCommander('ur_arm')
         
         # 初始化需要使用move group控制的机械臂中的gripper group
-        gripper = moveit_commander.MoveGroupCommander('ur5')
+        gripper = moveit_commander.MoveGroupCommander('ur_robotiq')
         
         # 设置机械臂和夹爪的允许误差值
         arm.set_goal_joint_tolerance(0.001)

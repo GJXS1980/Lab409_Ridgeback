@@ -10,113 +10,10 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="ur_arm">
-        <chain base_link="base_link" tip_link="palm" />
+        <chain base_link="base_link" tip_link="grasping_frame" />
     </group>
-    <group name="ur5">
-        <link name="base_link" />
-        <link name="mid_mount" />
-        <link name="ur_base_link" />
-        <link name="shoulder_link" />
-        <link name="upper_arm_link" />
-        <link name="forearm_link" />
-        <link name="wrist_1_link" />
-        <link name="wrist_2_link" />
-        <link name="wrist_3_link" />
-        <link name="tool0" />
-        <link name="robotiq_coupler" />
-        <link name="palm" />
-        <joint name="mid_mount_joint" />
-        <joint name="ur_base_link_joint" />
-        <joint name="shoulder_pan_joint" />
-        <joint name="shoulder_lift_joint" />
-        <joint name="elbow_joint" />
-        <joint name="wrist_1_joint" />
-        <joint name="wrist_2_joint" />
-        <joint name="wrist_3_joint" />
-        <joint name="wrist_3_link-tool0_fixed_joint" />
-        <joint name="robotiq_coupler_joint" />
-        <joint name="robotiq_hand_joint" />
-    </group>
-    <group name="robotiq">
-        <link name="palm" />
-        <link name="finger_1_link_0" />
-        <link name="finger_1_link_1" />
-        <link name="finger_1_link_2" />
-        <link name="finger_1_link_3" />
-        <link name="finger_1_link_paradistal_hinge" />
-        <link name="finger_1_link_median_actuating_hinge" />
-        <link name="finger_1_link_median_bar" />
-        <link name="finger_1_link_paramedian_hinge" />
-        <link name="finger_1_link_median_bar_underactuated" />
-        <link name="finger_1_link_paraproximal_actuating_hinge" />
-        <link name="finger_1_link_paraproximal_bar" />
-        <link name="finger_1_link_proximal_actuating_hinge" />
-        <link name="finger_1_link_proximal_actuating_bar" />
-        <link name="finger_2_link_0" />
-        <link name="finger_2_link_1" />
-        <link name="finger_2_link_2" />
-        <link name="finger_2_link_3" />
-        <link name="finger_2_link_paradistal_hinge" />
-        <link name="finger_2_link_median_actuating_hinge" />
-        <link name="finger_2_link_median_bar" />
-        <link name="finger_2_link_paramedian_hinge" />
-        <link name="finger_2_link_median_bar_underactuated" />
-        <link name="finger_2_link_paraproximal_actuating_hinge" />
-        <link name="finger_2_link_paraproximal_bar" />
-        <link name="finger_2_link_proximal_actuating_hinge" />
-        <link name="finger_2_link_proximal_actuating_bar" />
-        <link name="finger_middle_link_0" />
-        <link name="finger_middle_link_1" />
-        <link name="finger_middle_link_2" />
-        <link name="finger_middle_link_3" />
-        <link name="finger_middle_link_paradistal_hinge" />
-        <link name="finger_middle_link_median_actuating_hinge" />
-        <link name="finger_middle_link_median_bar" />
-        <link name="finger_middle_link_paramedian_hinge" />
-        <link name="finger_middle_link_median_bar_underactuated" />
-        <link name="finger_middle_link_paraproximal_actuating_hinge" />
-        <link name="finger_middle_link_paraproximal_bar" />
-        <link name="finger_middle_link_proximal_actuating_hinge" />
-        <link name="finger_middle_link_proximal_actuating_bar" />
-        <joint name="palm_finger_1_joint" />
-        <joint name="finger_1_joint_1" />
-        <joint name="finger_1_joint_2" />
-        <joint name="finger_1_joint_3" />
-        <joint name="finger_1_joint_paradistal_hinge" />
-        <joint name="finger_1_joint_median_actuating_hinge" />
-        <joint name="finger_1_joint_median_actuating_hinge_median_bar" />
-        <joint name="finger_1_joint_paramedian_hinge" />
-        <joint name="finger_1_joint_paramedian_hinge_median_bar_underactuated" />
-        <joint name="finger_1_joint_paraproximal_actuating_hinge" />
-        <joint name="finger_1_joint_paraproximal_bar" />
-        <joint name="finger_1_joint_proximal_actuating_hinge" />
-        <joint name="finger_1_joint_proximal_actuating_bar" />
-        <joint name="palm_finger_2_joint" />
-        <joint name="finger_2_joint_1" />
-        <joint name="finger_2_joint_2" />
-        <joint name="finger_2_joint_3" />
-        <joint name="finger_2_joint_paradistal_hinge" />
-        <joint name="finger_2_joint_median_actuating_hinge" />
-        <joint name="finger_2_joint_median_actuating_hinge_median_bar" />
-        <joint name="finger_2_joint_paramedian_hinge" />
-        <joint name="finger_2_joint_paramedian_hinge_median_bar_underactuated" />
-        <joint name="finger_2_joint_paraproximal_actuating_hinge" />
-        <joint name="finger_2_joint_paraproximal_bar" />
-        <joint name="finger_2_joint_proximal_actuating_hinge" />
-        <joint name="finger_2_joint_proximal_actuating_bar" />
-        <joint name="palm_finger_middle_joint" />
-        <joint name="finger_middle_joint_1" />
-        <joint name="finger_middle_joint_2" />
-        <joint name="finger_middle_joint_3" />
-        <joint name="finger_middle_joint_paradistal_hinge" />
-        <joint name="finger_middle_joint_median_actuating_hinge" />
-        <joint name="finger_middle_joint_median_actuating_hinge_median_bar" />
-        <joint name="finger_middle_joint_paramedian_hinge" />
-        <joint name="finger_middle_joint_paramedian_hinge_median_bar_underactuated" />
-        <joint name="finger_middle_joint_paraproximal_actuating_hinge" />
-        <joint name="finger_middle_joint_paraproximal_bar" />
-        <joint name="finger_middle_joint_proximal_actuating_hinge" />
-        <joint name="finger_middle_joint_proximal_actuating_bar" />
+    <group name="ur_robotiq">
+        <link name="grasping_frame" />
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="forward" group="ur_arm">
@@ -136,7 +33,12 @@
         <joint name="wrist_3_joint" value="1.2773" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="gripper" parent_link="grasping_frame" group="ur5" />
+    <end_effector name="ur_effectors" parent_link="grasping_frame" group="ur_robotiq" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="ridgeback_ur5" type="fixed" parent_frame="base_link" child_link="mid_mount" />
+    <virtual_joint name="ridgeback_ur5_1" type="fixed" parent_frame="mid_mount" child_link="ur_base_link" />
+    <virtual_joint name="ur5_robotiq" type="fixed" parent_frame="tool0" child_link="robotiq_coupler" />
+    <virtual_joint name="ur5_robotiq_1" type="fixed" parent_frame="robotiq_coupler" child_link="palm" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="axle_link" link2="chassis_link" reason="Adjacent" />
     <disable_collisions link1="axle_link" link2="front_cover_link" reason="Never" />
@@ -265,6 +167,7 @@
     <disable_collisions link1="finger_1_link_1" link2="finger_1_link_proximal_actuating_hinge" reason="Default" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_0" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_1" reason="Never" />
+    <disable_collisions link1="finger_1_link_1" link2="finger_2_link_2" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_3" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_1" link2="finger_2_link_median_bar" reason="Never" />
@@ -452,6 +355,7 @@
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_0" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_1" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_2" reason="Never" />
+    <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_3" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_median_bar" reason="Never" />
     <disable_collisions link1="finger_1_link_paradistal_hinge" link2="finger_middle_link_median_bar_underactuated" reason="Never" />
@@ -733,6 +637,7 @@
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_0" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_1" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_2" reason="Never" />
+    <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_3" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_actuating_hinge" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_bar" reason="Never" />
     <disable_collisions link1="finger_2_link_median_bar" link2="finger_middle_link_median_bar_underactuated" reason="Never" />
