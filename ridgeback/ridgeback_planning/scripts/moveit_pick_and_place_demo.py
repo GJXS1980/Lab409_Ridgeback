@@ -12,8 +12,8 @@ from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from tf.transformations import quaternion_from_euler
 from copy import deepcopy
 
-GROUP_NAME_ARM = 'arm'
-GROUP_NAME_GRIPPER = 'gripper'
+GROUP_NAME_ARM = 'ur_arm'
+GROUP_NAME_GRIPPER = 'ur_robotiq'
 
 GRIPPER_FRAME = 'grasping_frame'
 
