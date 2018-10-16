@@ -34,6 +34,8 @@
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="ur_effectors" parent_link="grasping_frame" group="ur_robotiq" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="ur_to_world" type="fixed" parent_frame="world" child_link="base_link" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="axle_link" link2="chassis_link" reason="Adjacent" />
     <disable_collisions link1="axle_link" link2="front_cover_link" reason="Never" />

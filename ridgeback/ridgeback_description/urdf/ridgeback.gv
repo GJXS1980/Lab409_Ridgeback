@@ -108,7 +108,7 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "top_link_joint" -> "top_link"
 "base_link" -> "mid_mount_joint" [label="xyz: 0 0 0.28 \nrpy: 0 -0 0"]
 "mid_mount_joint" -> "mid_mount"
-"mid_mount" -> "ur_base_link_joint" [label="xyz: 0.28 0 0 \nrpy: 0 0 -1.5708"]
+"mid_mount" -> "ur_base_link_joint" [label="xyz: 0.28 0 0 \nrpy: 0 0 -0.785398"]
 "ur_base_link_joint" -> "ur_base_link"
 "ur_base_link" -> "base_link-base_fixed_joint" [label="xyz: 0 0 0 \nrpy: 0 0 3.14159"]
 "base_link-base_fixed_joint" -> "base"
@@ -128,9 +128,9 @@ node [shape=ellipse, color=blue, fontcolor=blue];
 "ee_fixed_joint" -> "ee_link"
 "wrist_3_link" -> "wrist_3_link-tool0_fixed_joint" [label="xyz: 0 0.0823 0 \nrpy: -1.5708 0 0"]
 "wrist_3_link-tool0_fixed_joint" -> "tool0"
-"tool0" -> "robotiq_coupler_joint" [label="xyz: 0 0 0.06 \nrpy: -1.5708 1.26218e-29 3.14159"]
+"tool0" -> "robotiq_coupler_joint" [label="xyz: 0 0 0.06 \nrpy: -1.5708 -0 2.35619"]
 "robotiq_coupler_joint" -> "robotiq_coupler"
-"robotiq_coupler" -> "robotiq_hand_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -1.5708 3.14159"]
+"robotiq_coupler" -> "robotiq_hand_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -0 -3.14159"]
 "robotiq_hand_joint" -> "palm"
 "palm" -> "grasping_frame_joint" [label="xyz: 0 0.1 0.01 \nrpy: 0 -1.5708 3.14159"]
 "grasping_frame_joint" -> "grasping_frame"
