@@ -1,8 +1,8 @@
 controller_list:
- - name: /vel_based_pos_traj_controller #or /pos_based_pos_traj_controller
+ - name: ""
    action_ns: follow_joint_trajectory
    type: FollowJointTrajectory
-   default: true
+   #default: true
    joints:
       - shoulder_pan_joint
       - shoulder_lift_joint
