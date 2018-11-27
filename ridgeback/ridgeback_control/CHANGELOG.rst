@@ -2,6 +2,23 @@
 Changelog for package ridgeback_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2018-04-12)
+------------------
+* Added support for planar motion using interactive markers.
+* [ridgeback_control] Made PS4 default controller.
+* Contributors: Tony Baltovski
+
+0.2.0 (2018-04-12)
+------------------
+* Removed tight default rolling window
+* Updated rolling window for odom responsiveness.  Minor changes to control and urdf syntax for kinetic
+* Updated to Package format 2.
+* [ridgeback_control] Added ability to override default control parameters with environment variables.
+* Contributors: Dave Niewinski, Tony Baltovski
+
+0.1.10 (2017-06-26)
+-------------------
+
 0.1.9 (2017-04-17)
 ------------------
 * Updated maintainer.

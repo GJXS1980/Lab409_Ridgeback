@@ -63,5 +63,5 @@ ekf_localization:
                 true, true, false]
   imu0_differential: false
   odom_frame: odom
-  base_link_frame: base_link      #world
+  base_link_frame: base_link
   world_frame: odom

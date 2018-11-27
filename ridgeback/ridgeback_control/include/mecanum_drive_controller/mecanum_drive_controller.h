@@ -189,7 +189,7 @@ private:
    * \param[out]  wheels_radius radius of the wheel read from the urdf
    */
   bool getWheelRadius(const urdf::ModelInterfaceSharedPtr model, const urdf::LinkConstSharedPtr& wheel_link, double& wheel_radius);
-  
+
   /**
    * \brief Sets the odometry publishing fields
    * \param root_nh Root node handle

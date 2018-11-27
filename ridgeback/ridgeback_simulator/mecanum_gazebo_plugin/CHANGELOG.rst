@@ -2,6 +2,9 @@
 Changelog for package mecanum_gazebo_plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.3 (2018-04-26)
+------------------
+
 0.0.2 (2017-05-08)
 ------------------
 * Disabled tests for mecanum_gazebo_plugin.
